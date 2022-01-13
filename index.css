@@ -1,138 +1,267 @@
-ul {
-    list-style-type: none;
-    margin: 2px 4px;
-    padding: 16px;
-    font-size: 32px;
-    color: black;
-
+/* The side navigation menu */
+.sidenav {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0;
+  left: 0;
+  background-color: #111; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
 }
 
-.button {
-
-color: black;
-
-
-
+/* The navigation menu links */
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s
 }
 
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover, .offcanvas a:focus{
+  color: #f1f1f1;
+}
 
-:root{
-    --hauteur-menu: 60px;
-  }
-  * {
-    margin: 0px;
-    padding: 0px;
-    font-family: Montserrat, sans-serif;
-  }
-  nav {
-    width: 100%;
-    font-size: 18px;
-    position: sticky;
-    top: 0;
-  }
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
 
-  nav > ul {
-    display: flex;
-    text-align: center;
-    box-shadow: 0px 1px 2px 1px rgba(0,0,0,0.3);
-    height: var(--hauteur-menu);
-  }
-   
-  nav ul {
-    list-style-type: none;
-  }
-  
-  nav > ul > li {
-    background-color: white;
-    position: relative;
-    height: 100%;
-    flex: 1;
-  }
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+  transition: margin-left .5s;
+  padding: 20px;
+  overflow:hidden;
+  width:100%;
+}
+body {
+overflow-x: hidden;
+}
 
-  nav > ul > li > a {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  
-  li a {
-    text-decoration: none;
-    color: black;
-  }
-  
-  .menu-deroulant > a:after{
-    content: '❯';
-    font-size: 15px;
-    margin-left: 7px;
-    display: inline-block;
-  }
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+}
 
-  .sous-menu {
-    margin-top: var(--hauteur-menu);
-    width: 100%;
-    text-align: left;
-    background-color: white;
-    border-radius: 2px;
-    overflow: hidden;
-    max-height: 0;
-  }
-  
-  .sous-menu > li > a {
-    height: 50px;
-    padding-left: 20px;
-    width: 100%;
-    align-items: center;
-    display: flex;
-  }
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
 
-  nav > ul > li:hover > a{
-    color: #2169EC;
-  }
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
 
-  
-  .sous-menu > li:hover {
-    background-color: rgba(33, 105, 236, 0.3);
-  }
-  
-  .sous-menu > li:hover > a {
-    color: white;
-  }
-  
-  @keyframes rotationFleche {
-    0% {
-      transform: rotate(0deg);
-    }
-    100%{
-      transform: rotate(90deg);
-    }
-  }
-  
-  .menu-deroulant:hover > a:after{
-    animation: rotationFleche 0.2s linear forwards;
-  }
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
 
-  @keyframes apparitionSousMenu {
-    0% {
-      box-shadow: 0px 3px 3px 1px rgba(0,0,0,0);
-      border-top: 3px solid #2169EC;
-    }
-    30% {
-      box-shadow: 0px 3px 3px 1px rgba(0,0,0,0.3);
-    }
-    100% {
-      max-height: 50em;
-      border-top: 3px solid #2169EC;
-      box-shadow: 0px 3px 3px 1px rgba(0,0,0,0.3);
-    }
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+a svg{
+transition:all .5s ease;
+
+&:hover{
+  #transform:rotate(180deg);
+}
+}
+
+#ico{
+display: none;
+}
+
+.menu{
+background: #000;
+display: none;
+padding: 5px;
+width: 320px;
+@include border-radius(5px);
+
+#transition: all 0.5s ease;
+
+a{
+  display: block;
+  color: #fff;
+  text-align: center;
+  padding: 10px 2px;
+  margin: 3px 0;
+  text-decoration: none;
+  background: #444;
+
+  &:nth-child(1){
+    margin-top: 0;
+    @include border-radius(3px 3px 0 0 );
+  }
+  &:nth-child(5){
+    margin-bottom: 0;
+    @include border-radius(0 0 3px 3px);
   }
 
-  .menu-deroulant:hover > .sous-menu {
-    animation: apparitionSousMenu 1s forwards;
+  &:hover{
+    background: #555;
   }
+}
+}
+
+.sidenav {
+  transition: 0s; 
+}
+
+#main {
+  transition: margin-left 0s;
+}
+
+h1 {
+text-align: center;
+}
+
+h1  {  text-align: center ; 
+font-size: large ;
+font-size: 20pt;
+color: black;  
+text-decoration-line:  underline overline;
+
+
+
+
+} 
+
+
+
+li { font-family: sans-serif;
+font-size: large;
+font-size: 18pt;
+
+} 
+
 
 h2 {
+font-family: 'Times New Roman', Times, serif;
+font-size: 20pt;
+}
 
 
-  text-decoration: underline;
+h3 {
+font-family: 'Times New Roman', Times, serif;
+font-size: 20pt;
+}	  
+
+
+.button {
+background-color:white;
+border: none;
+color: black;
+padding: 15px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+margin: 4px 2px;
+border-radius: 0rem;
+}
+
+
+h4 {
+color: orangered;
+font-size: 18pt;
+}   
+
+
+
+h5 {
+
+color: white;
+font-size: 18pt;
+
+}  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body {
+background-size: cover;
+font-family: sans-serif;
+background-position: top;
+background-color: white;
+}
+
+* {
+padding: 0;
+margin: 0;
+box-sizing: border-box;
+list-style: none;
+text-decoration: none;
+}
+
+.nav-list {
+padding: 1rem 0;
+display: flex;
+justify-content: flex-end;
+align-items: right;
+
+}
+
+.nav-item {
+background-color:white;
+border: none;
+color:white;
+padding: 15px;
+text-align: right;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+margin: 4px 2px;
+border-radius: 0rem;
+
+}
+
+.nav-item a {
+
+color: #000;
+letter-spacing: 1.2px;
+
+}
+
+.kraken11 {
+
+display: block;
+margin-left: auto;
+margin-right: auto;
+
 }
